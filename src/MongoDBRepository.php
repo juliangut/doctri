@@ -15,7 +15,6 @@ namespace Jgut\Doctrine\Repository\MongoDB\ODM;
 
 use Doctrine\Common\Util\ClassUtils;
 use Doctrine\ODM\MongoDB\DocumentRepository;
-use Jgut\Doctrine\Repository\Pagination\MongoDBAdapter;
 use Jgut\Doctrine\Repository\Repository;
 use Jgut\Doctrine\Repository\Traits\EventsTrait;
 use Jgut\Doctrine\Repository\Traits\PaginatorTrait;
@@ -58,7 +57,7 @@ class MongoDBRepository extends DocumentRepository implements Repository
     public function findPaginatedBy($criteria, array $orderBy = [], $itemsPerPage = 10)
     {
         return $this->getPaginator(
-            new MongoDBAdapter($this->getDocumentPersister()->loadAll($criteria, $orderBy)),
+            new MongoDBPaginatorAdapter($this->getDocumentPersister()->loadAll($criteria, $orderBy)),
             $itemsPerPage
         );
     }

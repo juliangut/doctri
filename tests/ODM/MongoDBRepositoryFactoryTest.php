@@ -19,13 +19,12 @@ use Doctrine\ODM\MongoDB\UnitOfWork;
 use Jgut\Doctrine\Repository\MongoDB\ODM\MongoDBRepository;
 use Jgut\Doctrine\Repository\MongoDB\ODM\MongoDBRepositoryFactory;
 use Jgut\Doctrine\Repository\MongoDB\ODM\Tests\Stubs\DocumentStub;
+use PHPUnit\Framework\TestCase;
 
 /**
  * MongoDB repository factory tests.
- *
- * @group relational
  */
-class MongoDBRepositoryFactoryTest extends \PHPUnit_Framework_TestCase
+class MongoDBRepositoryFactoryTest extends TestCase
 {
     public function testCount()
     {

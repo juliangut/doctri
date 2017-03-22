@@ -21,14 +21,13 @@ use Doctrine\ODM\MongoDB\UnitOfWork;
 use Jgut\Doctrine\Repository\MongoDB\ODM\MongoDBRepository;
 use Jgut\Doctrine\Repository\MongoDB\ODM\Tests\Stubs\DocumentStub;
 use Jgut\Doctrine\Repository\MongoDB\ODM\Tests\Stubs\RepositoryStub;
+use PHPUnit\Framework\TestCase;
 use Zend\Paginator\Paginator;
 
 /**
  * MongoDB repository tests.
- *
- * @group mongodb
  */
-class MongoDBRepositoryTest extends \PHPUnit_Framework_TestCase
+class MongoDBRepositoryTest extends TestCase
 {
     public function testDocumentName()
     {

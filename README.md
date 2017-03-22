@@ -12,7 +12,7 @@
 
 # doctrine-mongodb-odm-repositories
 
-Doctrine2 ORM utility entity repositories
+Doctrine2 MongoDB ODM utility entity repositories
 
 ## Installation
 
