@@ -19,8 +19,6 @@ use Jgut\Doctrine\Repository\MongoDB\ODM\MongoDBPaginatorAdapter;
 
 /**
  * MongoDB paginator adapter tests.
- *
- * @group mongo
  */
 class MongoDBPaginatorAdapterTest extends \PHPUnit_Framework_TestCase
 {

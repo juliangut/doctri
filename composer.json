@@ -3,8 +3,9 @@
   "description": "Doctrine2 MongoDB ODM utility entity repositories",
   "keywords": [
     "Doctrine2",
-    "entity repository",
-    "ORM"
+    "document repository",
+    "MongoDB",
+    "ODM"
   ],
   "homepage": "https://github.com/juliangut/doctrine-mongodb-odm-repositories",
   "license": "MIT",
