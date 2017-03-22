@@ -1,6 +1,6 @@
 {
   "name": "juliangut/doctrine-mongodb-odm-repositories",
-  "description": "Doctrine2 ORM utility entity repositories",
+  "description": "Doctrine2 MongoDB ODM utility entity repositories",
   "keywords": [
     "Doctrine2",
     "entity repository",

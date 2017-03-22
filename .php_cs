@@ -2,7 +2,7 @@
 
 /*
  * doctrine-mongodb-odm-repositories (https://github.com/juliangut/doctrine-mongodb-odm-repositories).
- * Doctrine2 ORM utility entity repositories.
+ * Doctrine2 MongoDB ODM utility entity repositories.
  *
  * @license MIT
  * @link https://github.com/juliangut/doctrine-mongodb-odm-repositories
@@ -16,7 +16,7 @@ use PhpCsFixer\FixerInterface;
 
 $header = <<<'HEADER'
 doctrine-mongodb-odm-repositories (https://github.com/juliangut/doctrine-mongodb-odm-repositories).
-Doctrine2 ORM utility entity repositories.
+Doctrine2 MongoDB ODM utility entity repositories.
 
 @license MIT
 @link https://github.com/juliangut/doctrine-mongodb-odm-repositories
