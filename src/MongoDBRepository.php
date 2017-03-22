@@ -15,9 +15,9 @@ namespace Jgut\Doctrine\Repository\MongoDB\ODM;
 
 use Doctrine\Common\Util\ClassUtils;
 use Doctrine\ODM\MongoDB\DocumentRepository;
-use Jgut\Doctrine\Repository\Repository;
 use Jgut\Doctrine\Repository\EventsTrait;
 use Jgut\Doctrine\Repository\PaginatorTrait;
+use Jgut\Doctrine\Repository\Repository;
 use Jgut\Doctrine\Repository\RepositoryTrait;
 
 /**
