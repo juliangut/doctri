@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Jgut\Doctrine\Repository\MongoDB\ODM\Tests\Stubs;
 
+use Doctrine\ODM\MongoDB\DocumentManager;
 use Jgut\Doctrine\Repository\MongoDB\ODM\MongoDBRepository;
 
 /**
@@ -20,7 +21,7 @@ use Jgut\Doctrine\Repository\MongoDB\ODM\MongoDBRepository;
  */
 class RepositoryStub extends MongoDBRepository
 {
-    public function getManager()
+    public function getManager(): DocumentManager
     {
         return parent::getManager();
     }

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Jgut\Doctrine\Repository\MongoDB\ODM;
 
+use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ODM\MongoDB\Repository\RepositoryFactory;
 
@@ -46,7 +47,7 @@ class MongoDBRepositoryFactory implements RepositoryFactory
     /**
      * {@inheritdoc}
      */
-    public function getRepository(DocumentManager $documentManager, $documentName)
+    public function getRepository(DocumentManager $documentManager, $documentName): ObjectRepository
     {
         $repositoryHash =
             $documentManager->getClassMetadata($documentName)->getName() . spl_object_hash($documentManager);
@@ -66,9 +67,9 @@ class MongoDBRepositoryFactory implements RepositoryFactory
      * @param DocumentManager $documentManager
      * @param string          $documentName
      *
-     * @return \Doctrine\Common\Persistence\ObjectRepository
+     * @return ObjectRepository
      */
-    private function createRepository(DocumentManager $documentManager, $documentName)
+    private function createRepository(DocumentManager $documentManager, $documentName): ObjectRepository
     {
         $metadata = $documentManager->getClassMetadata($documentName);
         $repositoryClassName = $metadata->customRepositoryClassName ?: $this->repositoryClassName;

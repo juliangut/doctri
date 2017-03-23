@@ -40,7 +40,7 @@ class MongoDBPaginatorAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
-    public function getItems($offset, $itemCountPerPage)
+    public function getItems($offset, $itemCountPerPage): array
     {
         $cursor = clone $this->cursor;
         $cursor->recreate();
@@ -53,7 +53,7 @@ class MongoDBPaginatorAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
-    public function count()
+    public function count(): int
     {
         // Avoid using EagerCursor::count as this stores a collection without limits to memory
         if ($this->cursor->getBaseCursor() instanceof EagerCursor) {

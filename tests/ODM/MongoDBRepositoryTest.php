@@ -73,6 +73,10 @@ class MongoDBRepositoryTest extends TestCase
         $cursor = $this->getMockBuilder(Cursor::class)
             ->disableOriginalConstructor()
             ->getMock();
+        $cursor->expects(static::once())
+            ->method('count')
+            ->will(static::returnValue(5));
+        /* @var Cursor $cursor */
 
         $documentPersister = $this->getMockBuilder(DocumentPersister::class)
             ->disableOriginalConstructor()

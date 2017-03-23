@@ -14,11 +14,13 @@ declare(strict_types=1);
 namespace Jgut\Doctrine\Repository\MongoDB\ODM;
 
 use Doctrine\Common\Util\ClassUtils;
+use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ODM\MongoDB\DocumentRepository;
 use Jgut\Doctrine\Repository\EventsTrait;
 use Jgut\Doctrine\Repository\PaginatorTrait;
 use Jgut\Doctrine\Repository\Repository;
 use Jgut\Doctrine\Repository\RepositoryTrait;
+use Zend\Paginator\Paginator;
 
 /**
  * MongoDB document repository.
@@ -32,7 +34,7 @@ class MongoDBRepository extends DocumentRepository implements Repository
     /**
      * {@inheritdoc}
      */
-    public function getClassName()
+    public function getClassName(): string
     {
         return ClassUtils::getRealClass(parent::getClassName());
     }
@@ -40,7 +42,7 @@ class MongoDBRepository extends DocumentRepository implements Repository
     /**
      * {@inheritdoc}
      */
-    protected function getManager()
+    protected function getManager(): DocumentManager
     {
         return $this->getDocumentManager();
     }
@@ -54,7 +56,7 @@ class MongoDBRepository extends DocumentRepository implements Repository
      *
      * @return \Zend\Paginator\Paginator
      */
-    public function findPaginatedBy($criteria, array $orderBy = [], $itemsPerPage = 10)
+    public function findPaginatedBy($criteria, array $orderBy = [], int $itemsPerPage = 10): Paginator
     {
         return $this->getPaginator(
             new MongoDBPaginatorAdapter($this->getDocumentPersister()->loadAll($criteria, $orderBy)),
@@ -69,7 +71,7 @@ class MongoDBRepository extends DocumentRepository implements Repository
      *
      * @return int
      */
-    public function countBy($criteria)
+    public function countBy($criteria): int
     {
         return $this->getDocumentPersister()->loadAll($criteria)->count();
     }

@@ -16,11 +16,12 @@ namespace Jgut\Doctrine\Repository\MongoDB\ODM\Tests;
 use Doctrine\MongoDB\EagerCursor;
 use Doctrine\ODM\MongoDB\Cursor;
 use Jgut\Doctrine\Repository\MongoDB\ODM\MongoDBPaginatorAdapter;
+use PHPUnit\Framework\TestCase;
 
 /**
  * MongoDB paginator adapter tests.
  */
-class MongoDBPaginatorAdapterTest extends \PHPUnit_Framework_TestCase
+class MongoDBPaginatorAdapterTest extends TestCase
 {
     public function testItems()
     {
