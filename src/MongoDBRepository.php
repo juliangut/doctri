@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Jgut\Doctrine\Repository\MongoDB\ODM;
 
 use Doctrine\Common\Util\ClassUtils;
+use Doctrine\ODM\MongoDB\Cursor;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ODM\MongoDB\DocumentRepository;
 use Jgut\Doctrine\Repository\EventsTrait;
@@ -58,10 +59,20 @@ class MongoDBRepository extends DocumentRepository implements Repository
      */
     public function findPaginatedBy($criteria, array $orderBy = [], int $itemsPerPage = 10): Paginator
     {
-        return $this->getPaginator(
-            new MongoDBPaginatorAdapter($this->getDocumentPersister()->loadAll($criteria, $orderBy)),
-            $itemsPerPage
-        );
+        return $this->paginate($this->getDocumentPersister()->loadAll($criteria, $orderBy), $itemsPerPage);
+    }
+
+    /**
+     * Paginate MongoDB cursor.
+     *
+     * @param Cursor $cursor
+     * @param int    $itemsPerPage
+     *
+     * @return Paginator
+     */
+    protected function paginate(Cursor $cursor, int $itemsPerPage = 10): Paginator
+    {
+        return $this->getPaginator(new MongoDBPaginatorAdapter($cursor), $itemsPerPage);
     }
 
     /**
