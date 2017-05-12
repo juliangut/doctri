@@ -37,7 +37,7 @@ class MongoDBRepository extends DocumentRepository implements Repository
      */
     public function getClassName(): string
     {
-        return ClassUtils::getRealClass(parent::getClassName());
+        return ClassUtils::getRealClass(parent::getDocumentName());
     }
 
     /**
