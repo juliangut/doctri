@@ -33,11 +33,22 @@ class MongoDBRepository extends DocumentRepository implements Repository
     use PaginatorTrait;
 
     /**
+     * Class name.
+     *
+     * @var string
+     */
+    protected $className;
+
+    /**
      * {@inheritdoc}
      */
     public function getClassName(): string
     {
-        return ClassUtils::getRealClass(parent::getDocumentName());
+        if ($this->className === null) {
+            $this->className = ClassUtils::getRealClass(parent::getDocumentName());
+        }
+
+        return $this->className;
     }
 
     /**
