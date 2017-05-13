@@ -45,7 +45,7 @@ class MongoDBRepository extends DocumentRepository implements Repository
     public function getClassName(): string
     {
         if ($this->className === null) {
-            $this->className = ClassUtils::getRealClass(parent::getDocumentName());
+            $this->className = ClassUtils::getRealClass($this->getDocumentName());
         }
 
         return $this->className;
