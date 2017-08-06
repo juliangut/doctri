@@ -32,7 +32,7 @@ matrix:
 before_install:
   - echo "extension = mongodb.so" >> /home/travis/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - if [[ -z $TEST_VERSION && -f "/home/travis/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini" ]]; then phpenv config-rm xdebug.ini; fi
-  - if [[ $TEST_VERSION ]]; then sed -i -e 's/"doctrine\/mongodb-odm": "^1.1",/"doctrine\/mongodb-odm": "^1.1",\n    "doctrine\/collections": "<1.5",/' composer.json ; fi
+  - if [[ $TEST_VERSION ]]; then sed -i -e 's/"doctrine\/mongodb-odm":\( \)"^1.1",/"doctrine\/mongodb-odm":"^1.1",\n    "doctrine\/collections":"<1.5",/' composer.json ; fi
   - composer global require hirak/prestissimo
   - composer self-update --stable --no-progress
 
