@@ -56,7 +56,7 @@ $documentManager = \Doctrine\ODM\MongoDB\DocumentManager::create(new \Doctrine\M
 
 ## Functionalities
 
-Head to [juliangut/doctrine-base-repositories](https://github.com/juliangut/doctrine-base-repositories) for a list of new methods provided by the repository
+Head to [juliangut/doctrine-base-repositories](https://github.com/juliangut/doctrine-base-repositories) for a full list of new functionalities provided by the repository
 
 ## Contributing
 

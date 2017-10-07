@@ -18,6 +18,7 @@ use Doctrine\ODM\MongoDB\Cursor;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ODM\MongoDB\DocumentRepository;
 use Jgut\Doctrine\Repository\EventsTrait;
+use Jgut\Doctrine\Repository\FiltersTrait;
 use Jgut\Doctrine\Repository\PaginatorTrait;
 use Jgut\Doctrine\Repository\Repository;
 use Jgut\Doctrine\Repository\RepositoryTrait;
@@ -30,6 +31,7 @@ class MongoDBRepository extends DocumentRepository implements Repository
 {
     use RepositoryTrait;
     use EventsTrait;
+    use FiltersTrait;
     use PaginatorTrait;
 
     /**
@@ -49,6 +51,14 @@ class MongoDBRepository extends DocumentRepository implements Repository
         }
 
         return $this->className;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getFilterCollection()
+    {
+        return $this->getManager()->getFilterCollection();
     }
 
     /**

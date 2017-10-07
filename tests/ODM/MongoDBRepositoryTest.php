@@ -17,6 +17,7 @@ use Doctrine\ODM\MongoDB\Cursor;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ODM\MongoDB\Mapping\ClassMetadata;
 use Doctrine\ODM\MongoDB\Persisters\DocumentPersister;
+use Doctrine\ODM\MongoDB\Query\FilterCollection;
 use Doctrine\ODM\MongoDB\UnitOfWork;
 use Jgut\Doctrine\Repository\MongoDB\ODM\MongoDBRepository;
 use Jgut\Doctrine\Repository\MongoDB\ODM\Tests\Stubs\DocumentStub;
@@ -44,6 +45,31 @@ class MongoDBRepositoryTest extends TestCase
         $repository = new MongoDBRepository($manager, $uow, new ClassMetadata(DocumentStub::class));
 
         static::assertEquals(DocumentStub::class, $repository->getClassName());
+    }
+
+    public function testFilterCollection()
+    {
+        $filterCollection = $this->getMockBuilder(FilterCollection::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        /* @var FilterCollection $filterCollection */
+
+        $manager = $this->getMockBuilder(DocumentManager::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $manager->expects(static::any())
+            ->method('getFilterCollection')
+            ->will(static::returnValue($filterCollection));
+        /* @var DocumentManager $manager */
+
+        $uow = $this->getMockBuilder(UnitOfWork::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        /* @var UnitOfWork $uow */
+
+        $repository = new RepositoryStub($manager, $uow, new ClassMetadata(DocumentManager::class));
+
+        static::assertSame($filterCollection, $repository->getFilterCollection());
     }
 
     public function testDocumentManager()
