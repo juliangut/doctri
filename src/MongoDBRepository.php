@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Jgut\Doctrine\Repository\MongoDB\ODM;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Util\ClassUtils;
 use Doctrine\ODM\MongoDB\Cursor;
 use Doctrine\ODM\MongoDB\DocumentManager;
@@ -51,6 +52,23 @@ class MongoDBRepository extends DocumentRepository implements Repository
         }
 
         return $this->className;
+    }
+
+    /**
+     * Finds documents by a set of criteria.
+     *
+     * @param array    $criteria
+     * @param array    $sort
+     * @param int|null $limit
+     * @param int|null $skip
+     *
+     * @return ArrayCollection
+     *
+     * @codeCoverageIgnore
+     */
+    public function findBy(array $criteria, array $sort = null, $limit = null, $skip = null)
+    {
+        return new ArrayCollection(parent::findBy($criteria, $sort, $limit, $skip));
     }
 
     /**
