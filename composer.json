@@ -41,6 +41,7 @@
     "sebastian/phpcpd": "^2.0",
     "squizlabs/php_codesniffer": "^2.0",
     "symfony/console": "^3.0",
+    "symfony/dependency-injection": "^3.0",
     "symfony/options-resolver": "^3.0"
   },
   "autoload": {
